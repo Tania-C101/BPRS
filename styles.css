@@ -1,0 +1,749 @@
+body {
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/*Navigation bar*/
+.front-nav {
+  height: 70px;
+}
+
+/*Navigation tab*/
+.nav-item {
+  color: #ffffff;
+}
+
+/*Navigation bar custom color*/
+.bg-custom {
+  background-color: #000000;
+}
+
+/* Active Navigation tab */
+.nav-link.active {
+  background-color: #a600fa;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+/*Index Page*/
+
+/*Carousel settings*/
+#indexCarousel {
+  height: 500px;
+  margin-bottom: 50px;
+}
+
+.indexTagContainer {
+  background-color: #ffffff;
+  color: #000000;
+  margin-top: -40px;
+}
+
+#indexTaglineTopic {
+  font-size: 60px;
+  font-weight: 500;
+}
+
+#indexTaglineContent {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.indexCardContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.indexCardSettings {
+  width: 24%;
+  padding: 25px 25px 0px 25px;
+  background-color: #f7f4f9;
+  border-radius: 20px;
+}
+
+#indexPitchContainer1,
+#indexPitchContainer2 {
+  width: 100%;
+  margin: auto;
+  padding: 50px;
+}
+
+#indexPitchContainer2 {
+  background-color: #37005a;
+}
+
+/*Salon introduction*/
+#indexPitch {
+  height: 80px;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 40px;
+}
+
+#indexPitchContainer2 {
+  height: 600px;
+}
+
+#indexLeft {
+  width: 45%;
+  height: 450px;
+  float: left;
+  line-height: 35px;
+  font-size: 15px;
+  background-color: #f2f3f4;
+  margin-left: 40px; /*Outer boundary*/
+  padding: 50px; /*Inner boundary*/
+
+  border-radius: 20px;
+}
+
+#indexPitch2 {
+  font-size: 40px;
+  font-weight: 600px;
+}
+
+#indexRight {
+  width: 45%;
+  height: 450px;
+  float: right;
+  padding: 50px 0px 50px 10px;
+  margin-right: 40px;
+  background-image: url("images/getAppImg.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+#getAppointmentbtn {
+  width: 60%;
+  height: 75px;
+  padding: 10px;
+  font-size: 28px;
+  margin: 120px 125px;
+  cursor: pointer;
+  background-color: #a600fa;
+  color: #ffffff;
+  border-style: none;
+  border-radius: 20px;
+}
+
+footer {
+  height: 150px;
+  margin: 0px;
+}
+
+.footerContainer {
+  width: 100%;
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: #000000;
+  color: #aaaaaa;
+  font-size: 13px;
+}
+
+.sec1 {
+  width: 40%;
+}
+
+.sec2 {
+  width: 40%;
+}
+
+.sec3 {
+  width: 20%;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: #aaaaaa;
+  line-height: 35px;
+}
+
+/*About Us Page*/
+
+#aboutContainer {
+  width: 100%;
+  height: 80vh;
+  margin-top: -60px;
+}
+
+#aboutLeft {
+  width: 40%;
+  height: 101.5vh;
+  float: left;
+  padding: 140px 0px 170px 50px;
+  background-color: #fcdeff;
+}
+
+#aboutRight {
+  width: 60%;
+  float: right;
+  padding: 70px 0px 13px 0px;
+  font-size: 14px;
+  line-height: 35px;
+  background-color: #ffffff;
+}
+
+#aboutTopic {
+  font-size: 50px;
+  font-weight: 600px;
+  text-align: center;
+}
+
+#aboutDescription {
+  padding: 50px;
+  text-align: center;
+}
+
+/*Services Page*/
+
+#servicesContainer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 25px;
+}
+
+.servicesTable {
+  margin: 20px 100px 50px 100px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #e5ccf4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-card {
+  width: calc(25% - 20px);
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .service-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .service-card {
+    width: calc(100% - 20px);
+  }
+}
+#servicesTopicRow {
+  margin-top: 50px;
+}
+
+#servicesCell {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+#serviceColImage {
+  padding: 25px;
+}
+
+.sub-headings {
+  font-size: 30px;
+  font-weight: 700;
+}
+/*---------------------CSS - Done by Tania-----------------------*/
+
+/*Contact Information section - Common section*/
+
+.contact-info {
+  padding: 50px 0;
+  background-color: #f8e7fff9;
+}
+
+.contact-info .contact-section-label {
+  margin-bottom: 10px;
+}
+
+.contact-info .contact-detail-label {
+  margin-bottom: 20px;
+}
+
+/*Custom icon color*/
+.custom-icon {
+  color: black;
+}
+
+/*Alignment of contact information text*/
+.contact-item {
+  display: flex;
+}
+
+.contact-item .icon {
+  margin-right: 20px;
+}
+
+.contact-item .text {
+  flex: 2; /*Expand the text section to fill remaining space*/
+}
+
+/*Appointments Page*/
+
+/*Container image(backgroud) for all pages*/
+.container-image {
+  position: relative;
+  max-width: 100%;
+  height: 400px;
+  text-align: center;
+}
+
+.container-image .image {
+  width: 100%; /*Image fills the entire container*/
+  height: auto;
+}
+
+.container-image .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+appServLabel {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/*---------------------CSS - Done by Dulakshi-----------------------*/
+
+#appServicesLeft {
+  float: left;
+}
+
+#appServicesRight {
+  float: right;
+}
+
+/*---------------------CSS - Done by Tania-----------------------*/
+
+/*Custom CSS for form alignment*/
+.twice-two {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.twice-two input {
+  width: 48%;
+}
+
+.form-group textarea {
+  width: 100%;
+  height: 140px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-contact {
+  float: left;
+}
+
+/*---------------------CSS - Done by Dulakshi-----------------------*/
+
+.dropdown-menu {
+  list-style: none;
+  background: #ffffff;
+}
+
+.dropdown-menu .dropdown-tab {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-menu .dropdown-tab .dropdown-link {
+  display: block;
+  padding: 10px 10px;
+  color: #000000;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+
+.dropdown-menu .dropdown-tab .dropdown-link:hover {
+  background: #dfa6f2;
+}
+
+/*---------------------CSS - Done by Tania-----------------------*/
+
+#edit-profile-form {
+  padding: 40px;
+  cursor: pointer;
+}
+
+#edit-profile-form #user-profile-label {
+  padding: 10px 0px 10px 0px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#edit-profile-form #user-profile-input {
+  width: 100%;
+  padding: 8px 0px 8px 0px;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.error-display,
+.text-danger {
+  color: red;
+}
+
+/*---------------------CSS - Done by Dulakshi, Tania-----------------------*/
+
+/*End of Front-End CSS Styling*/
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Back-end Profile Setting section*/
+
+.profile-bar {
+  width: 100%;
+  height: 70px;
+  background-color: #37005a;
+}
+
+.sec3 {
+  width: 90%;
+  float: left;
+}
+
+.sec4 {
+  width: 10%;
+  float: right;
+  border-left: solid 3px #ffffff;
+  background-color: #37005a;
+}
+
+.profile-nav {
+  width: 100%;
+  float: right;
+  margin: 15px 0px 12px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.profile-nav:hover {
+  width: 100%;
+  background-color: #ffffff;
+  color: #37005a;
+  border-radius: 10px;
+}
+
+#back-end-title {
+  padding: 24px 0px 0px 250px;
+  color: #ffffff;
+}
+
+/*Back-end Display Section*/
+
+.main-container {
+  width: 100%;
+}
+
+.left-Panel {
+  width: 20%;
+  float: left;
+  background-color: #ffffff;
+}
+
+.right-Panel {
+  width: 80%;
+  height: 180vh;
+  float: right;
+  padding: 50px;
+  background-color: #a600fa;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.display-font {
+  color: #000000;
+}
+
+/*Back-end panel vertical navigation menu container*/
+.vertical-menu {
+  text-align: left;
+  padding: 50px 30px 50px 30px;
+}
+
+/*Backend-nav refers to the individual navigation links*/
+.backend-nav {
+  width: 100%;
+  display: block;
+  padding: 12px;
+  margin-bottom: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.vertical-menu,
+.backend-nav:hover,
+.dropdown-item:hover {
+  width: 100%;
+  background-color: #ffffff;
+  color: #37005a;
+  border-radius: 10px;
+}
+
+.vertical-menu,
+.backend-nav:active {
+  width: 100%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+/*Dropdown main-component style setting*/
+#dropdownMenuLink {
+  text-align: left;
+  position: relative;
+}
+
+/*Dropdown sub-components style setting*/
+.dropdown-menu {
+  position: relative; /*Sets the sub-component links dynamically take the required space under the parent element*/
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+
+.dropdown-item:active {
+  width: 100%;
+  background-color: #c961fd;
+  color: white;
+  border-radius: 10px;
+}
+
+.inquiryView {
+  padding: 30px 50px 45px 50px;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #f0d4fe;
+  color: #000000;
+}
+
+.tableOutline {
+  border: solid 1px #000000;
+  padding: 10px;
+  margin: 10px 10px 10px 10px;
+}
+.buttonBE {
+  width: 150px;
+  background-color: #37005a;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 14px;
+}
+
+.inquiryTable {
+  width: 100%;
+  border: 1px solid #000000;
+}
+
+.inquiryTableRowHead {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #000000;
+}
+
+.inquiryTableRow {
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #000000;
+  height: 50px;
+}
+
+.inquiryReplyForm {
+  width: 100%;
+  display: flex;
+}
+
+.inquiryLabel {
+  width: 20%;
+  float: left;
+}
+
+.inquiryInput {
+  width: 50%;
+  float: right;
+}
+
+.service-search {
+  width: 100%;
+  display: flex;
+}
+
+.service-search-sec1 {
+  width: 25%;
+  float: left;
+}
+.service-search-sec2 {
+  width: 30%;
+  float: right;
+}
+
+/*--CSS done by Tania*/
+
+.app-button {
+  width: 100%;
+  display: flex;
+}
+
+#btnSec1,
+#btnSec2 {
+  width: 30%;
+  float: left;
+}
+
+#btnSec3 {
+  width: 30%;
+  float: right;
+}
+
+.col-md-6 {
+  font-size: 14px;
+}
+
+.form-style {
+  padding: 50px 50px 45px 50px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #f0d4fe;
+}
+
+.front-button {
+  width: 150px;
+  background-color: #a600fa;
+  color: white;
+  border-color: #000000;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 15px;
+}
+
+.display-panel-inner {
+  padding: 30px 50px 45px 50px;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #f0d4fe;
+}
+
+.inner-row {
+  width: 300px;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-sec {
+  width: 100%;
+  display: flex;
+}
+
+.sec-right {
+  width: 10%;
+  float: right;
+}
+
+.sec-middle {
+  width: 20%;
+  float: left;
+  margin-right: 20px;
+}
+
+.sec-left {
+  width: 15%;
+  float: left;
+}
+
+.side-image {
+  border-radius: 20px;
+  background-color: #f3f2f4;
+  margin: 50px 55px 10px 0px;
+}
+
+.box {
+  flex: 1 0 20%;
+  padding: 30px;
+  margin: 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  background-color: blueviolet;
+}
+
+.display-panel-dashboard {
+  background-color: #e4e3e4;
+}
+
+.dashboard-style {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.stat {
+  font-size: 40px;
+}
+
+#box4,
+#box5 {
+  background-color: #9551a7;
+}
+
+#box6,
+#box7 {
+  background-color: #73236f;
+}
+
+.service-form {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.service-form-left {
+  width: 25%;
+  padding-top: 30px;
+  float: left;
+}
+
+.service-form-right {
+  width: 75%;
+  padding-top: 30px;
+  float: right;
+}
+
+.btn[disabled] {
+  background-color: #3b3b3b; /* Change to your desired shade of gray */
+  color: #ffffff; /* Text color for disabled state */
+}

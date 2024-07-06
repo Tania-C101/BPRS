@@ -1,0 +1,134 @@
+CREATE TABLE employees(
+    Emp_ID INT(5) AUTO_INCREMENT PRIMARY KEY,
+    Full_Name VARCHAR(250) NOT NULL UNIQUE,
+    Email VARCHAR(150) NOT NULL UNIQUE,
+    Contact_No INT(10) NOT NULL,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    Employee_Category VARCHAR(20) NOT NULL
+);
+
+
+
+CREATE TABLE reg_users(
+    Reg_UID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    R_First_Name VARCHAR(50) NOT NULL,
+    R_Last_Name VARCHAR(100) NOT NULL,
+    R_Email VARCHAR(150) NOT NULL UNIQUE,
+    Phone INT(10) NOT NULL,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    R_Registered_Date DATE DEFAULT CURRENT_DATE
+);
+
+
+
+CREATE TABLE unreg_users (
+    Unreg_UID VARCHAR(15) PRIMARY KEY,
+    U_First_Name VARCHAR(50) NOT NULL,
+    U_Last_Name VARCHAR(100) NOT NULL,
+    U_Email VARCHAR(150) NOT NULL,
+    U_Phone INT NOT NULL
+);
+
+
+DELIMITER //
+
+CREATE TRIGGER unreg_users_before_insert
+BEFORE INSERT ON unreg_users
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+    SET max_id = (SELECT IFNULL(MAX(CAST(SUBSTRING(Unreg_UID, 3) AS UNSIGNED)), 0) FROM unreg_users);
+    SET NEW.Unreg_UID = CONCAT('UR', max_id + 1);
+END;
+//
+
+DELIMITER ;
+
+
+
+CREATE TABLE inquiries (
+    Inquiry_ID INT AUTO_INCREMENT PRIMARY KEY,
+    I_First_Name VARCHAR(50) NOT NULL,
+    I_Last_Name VARCHAR(100) NOT NULL,
+    I_Email VARCHAR(150) NOT NULL,
+    I_Mobile INT NOT NULL,
+    Message TEXT NOT NULL,
+    Response TEXT,
+    User_ID VARCHAR(15),
+    User_Type ENUM('registered', 'unregistered'), 
+    Emp_ID INT(5),
+    Date_Received DATE DEFAULT CURRENT_DATE,
+    FOREIGN KEY (Emp_ID) REFERENCES employees(Emp_ID) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE services(
+    Service_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Service_Name VARCHAR(100) NOT NULL,
+    Service_Cost DECIMAL(20,2) NOT NULL,
+    Service_Category VARCHAR(100) NOT NULL,
+    Emp_ID INT(5),
+    Image_ID INT(10),
+    FOREIGN KEY (Emp_ID) REFERENCES employees(Emp_ID)
+	ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE appointments(
+    App_ID INT(10) AUTO_INCREMENT PRIMARY KEY, 
+    App_Date DATE NOT NULL,
+    App_Time TIME NOT NULL,
+    App_Services TEXT NOT NULL,
+    Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    App_Status VARCHAR(15),
+    Service_ID INT(10),
+    User_ID INT(10),    
+    Emp_ID INT(5),
+    FOREIGN KEY (User_ID) REFERENCES reg_users(Reg_UID),
+    FOREIGN KEY (Emp_ID) REFERENCES employees(Emp_ID),
+    FOREIGN KEY (Service_ID) REFERENCES services(Service_ID)
+	ON DELETE CASCADE ON UPDATE CASCADE   
+);
+
+
+
+CREATE TABLE invoices(
+	Invoice_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Service_Name VARCHAR(100) NOT NULL,
+    Total_Price DECIMAL(20,2) NOT NULL,
+    App_ID INT(10),
+    Service_ID INT(10),
+    FOREIGN KEY (App_ID) REFERENCES appointments(App_ID),
+    FOREIGN KEY (Service_ID) REFERENCES services(Service_ID)
+);
+
+
+
+CREATE TABLE reports(
+	Report_ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    Report_Type VARCHAR(50) NOT NULL,
+    Gen_Date DATE NOT NULL,
+    Emp_ID INT,
+    FOREIGN KEY (Emp_ID) REFERENCES employees(Emp_ID)
+    	ON UPDATE CASCADE
+);
+
+
+
+CREATE TABLE s_images (
+    Image_ID INT AUTO_INCREMENT PRIMARY KEY,
+    File_Name VARCHAR(100),
+    File BLOB
+  );
+
+
+CREATE TABLE content(
+    Page_ID INT(5) PRIMARY KEY AUTO_INCREMENT,
+    Page_Title VARCHAR(100) NOT NULL,
+    Page_Desc TEXT NOT NULL
+    );
+
