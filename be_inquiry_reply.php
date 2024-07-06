@@ -272,7 +272,7 @@ if ($conn->connect_error) {
                       style="margin-left: -10px;">Submit</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary buttonBE"
-                      onclick="window.location.href='be_inquiry_mgt.php';">Cancel</button>
+                      onclick="window.location.href='be_inquiry_mgt.php';">Back</button>
                   </td>
                 </tr>
               </table>

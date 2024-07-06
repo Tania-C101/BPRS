@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
   $sql = "INSERT INTO content (Page_Title, Page_Desc) VALUES ('$title', '$page_desc')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('New record created successfully!')</script>";
+    echo "<script>alert('Page updated successfully!')</script>";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -185,8 +185,8 @@ if (isset($_POST['submit'])) {
           <div id="pageDescError" class="error-display"></div>
           <br>
           <br>
-          <br>
           <button type="submit" name="submit" class="btn btn-primary buttonBE">Update</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="button" class="btn btn-primary buttonBE"
             onclick="window.location.href='be_dashboard.php';">Back</button>
         </form>

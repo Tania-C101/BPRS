@@ -108,6 +108,11 @@ if (isset($_POST['user_email'])) {
           border-style: none; font-size: 15px;">
           Retrieve Password
         </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 200px; height: 50px; background-color: #a600fa; color: white; border-color: #000000; border-radius: 10px;
+          border-style: none; font-size: 15px;" onclick="window.location.href='admin_login.php';">
+          Back
+        </button>
       </div>
     </form>
   </center>

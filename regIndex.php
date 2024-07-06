@@ -47,8 +47,8 @@
         </li>
       </ul>
     </div>
-    <a class="nav-item nav-link profile-nav" href="index.php"
-      onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+    <a class="nav-item nav-link" href="index.php" onclick="return confirm('Are you sure you want to logout?');"
+      style="color: white;">LOGOUT</a>
   </nav>
 
   <!--Carousel component of the Index page-->

@@ -431,6 +431,8 @@ $conn->close();
               style="width: 200px">Update Service</button>
             <button type="button" class="btn btn-primary btn-lg buttonBE" onclick="submitForm('delete')"
               style="width: 200px">Delete Service</button>
+            <button type="button" class="btn btn-primary btn-lg buttonBE"
+              onclick="window.location.href='be_dashboard.php';" style="width: 200px">Back</button>
           </div>
       </form>
     </div>
