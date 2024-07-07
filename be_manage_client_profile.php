@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($result->num_rows > 0) {
     $userDetails = $result->fetch_assoc();
   } else {
-    echo "<script>alert('No user found with the provided User ID'); window.location.href='be_manager_manage_client_profile.php';</script>";
+    echo "<script>alert('No user found with the provided User ID'); window.location.href='be_manage_client_profile.php';</script>";
   }
   $stmt->close();
 } else {
@@ -118,8 +118,18 @@ $conn->close();
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_employee_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 

@@ -57,7 +57,7 @@ if ($invoice_id > 0) {
       $service_name = trim($service_name);
 
       // Fetch service details for each service name
-      $query_service_details = "SELECT Service_Name, Service_Cost, Service_ID FROM services WHERE Service_Name = ?";
+      $query_service_details = "SELECT Service_Name, Service_Cost FROM services WHERE Service_Name = ?";
       $stmt_service_details = $conn->prepare($query_service_details);
       $stmt_service_details->bind_param("s", $service_name);
       $stmt_service_details->execute();
@@ -68,7 +68,6 @@ if ($invoice_id > 0) {
         $services[] = [
           'Service_Name' => $row_service_details['Service_Name'],
           'Service_Cost' => $row_service_details['Service_Cost'],
-          'Service_ID' => $row_service_details['Service_ID']
         ];
         $total_cost += $row_service_details['Service_Cost'];
       } else {
@@ -210,8 +209,18 @@ $conn->close();
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_employee_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 

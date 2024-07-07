@@ -85,8 +85,18 @@ if (isset($_POST['appointmentBESubmit'])) {
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_employee_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 

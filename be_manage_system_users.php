@@ -246,8 +246,18 @@ $conn->close();
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_employee_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -443,7 +453,7 @@ $conn->close();
           <button type="button" class="btn btn-primary btn-lg buttonBE" onclick="submitForm('delete')"
             style="width: 200px" <?php if (!$disableAdd)
               echo 'disabled'; ?>>Delete System User</button>
-          <a href="be_manager_manage_system_users.php" class="btn btn-secondary btn-lg"
+          <a href="be_manage_system_users.php" class="btn btn-secondary btn-lg"
             style="background-color: #37005a; color: white; border-color: #000000; border-radius: 10px; border-style: none; width:200px; font-size: 14px">Back</a>
         </div>
       </form>
@@ -464,7 +474,7 @@ $conn->close();
 
           var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           var mobilePattern = /^\d{10}$/;
-          var passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+          var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
           const hasNumber = /\d/.test(fname);
 
@@ -489,7 +499,7 @@ $conn->close();
           }
 
           if (!passwordPattern.test(password)) {
-            alert("Password must be at least 8 characters long, with at least one uppercase letter and one number!");
+            alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter and one digit!");
             return;
           }
 

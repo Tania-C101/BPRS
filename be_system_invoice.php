@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $stmt_insert_invoice->execute();
 
   // Invoice Date is the date when the appointment was accepted
-  $invoice_date = $row['Created_At'];
+  $invoice_date = date('Y-m-d', strtotime($row['Created_At']));
 
   $invoice_data = array(
     'Invoice_ID' => $invoice_id,
@@ -48,6 +48,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $invoices[] = $invoice_data;
 }
 
+// Handle search request
 if (isset($_POST['system_invoiceid'])) {
   $search_invoice_id = $_POST['system_invoiceid'];
 
@@ -55,6 +56,14 @@ if (isset($_POST['system_invoiceid'])) {
   $filtered_invoices = array_filter($invoices, function ($invoice) use ($search_invoice_id) {
     return $invoice['Invoice_ID'] == $search_invoice_id;
   });
+
+  // Check if any invoices were found
+  if (empty($filtered_invoices)) {
+    echo '<script>alert("No invoice found for the provided ID.");</script>';
+    // Redirect to the initial state of the page
+    echo '<script>window.location.href = "be_system_invoice.php";</script>';
+    exit; // Stop further execution
+  }
 } else {
   $filtered_invoices = $invoices;
 }
@@ -118,7 +127,7 @@ $conn->close();
     .table th,
     .table td {
       white-space: nowrap;
-      padding: 15px;
+      padding: 10px;
       text-align: center;
       border: 1px solid #000000;
     }
@@ -135,11 +144,19 @@ $conn->close();
     .view-button {
       background-color: #37005a;
       border-color: #37005a;
+      width: 150px;
+      font-size: 14px;
+      border-radius: 10px;
     }
 
     .view-button:hover {
-      background-color: #1a001e;
-      border-color: #1a001e;
+      background-color: #4a007a;
+      border-color: #4a007a;
+    }
+
+    #inquiryView-SearchButton:hover {
+      background-color: #4a007a;
+      border-color: #4a007a;
     }
   </style>
 </head>
@@ -154,8 +171,18 @@ $conn->close();
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_employee_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 

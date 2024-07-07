@@ -78,6 +78,7 @@ if ($action == 'search') {
   if (!empty($_POST['emp_id'])) {
     echo "<script>alert('System automatically generates the Employee ID. Please do not enter it manually.');</script>";
     $disableAdd = true; // Disable further actions
+
   } elseif ($stmt_check_username->num_rows > 0) {
     echo "<script>alert('Username already exists!');</script>";
     // Preserve entered values
@@ -86,6 +87,7 @@ if ($action == 'search') {
     $employee['Email'] = $email;
     $employee['Username'] = $username;
     $employee['Employee_Category'] = $employee_category;
+
   } elseif ($stmt_check_email->num_rows > 0) {
     echo "<script>alert('Email already exists!');</script>";
     // Preserve entered values
@@ -94,6 +96,7 @@ if ($action == 'search') {
     $employee['Email'] = $email;
     $employee['Username'] = $username;
     $employee['Employee_Category'] = $employee_category;
+
   } elseif ($stmt_check_mobile->num_rows > 0) {
     echo "<script>alert('Mobile number already exists!');</script>";
     // Preserve entered values
@@ -102,6 +105,7 @@ if ($action == 'search') {
     $employee['Email'] = $email;
     $employee['Username'] = $username;
     $employee['Employee_Category'] = $employee_category;
+
   } else {
     // Proceed with insertion
     $sql = "INSERT INTO employees (Full_Name, Email, Contact_No, Username, Password, Employee_Category)
@@ -240,15 +244,25 @@ $conn->close();
 <!--Manage System User Profile Sub Component Page-->
 
 <body class="home">
-  <div class="profile-bar">
+<div class="profile-bar">
     <div class="sec3">
       <h5 id="back-end-title">
         <center>RESERVATION MANAGEMENT SYSTEM - SALON LOCKS & CURLS</center>
       </h5>
     </div>
     <div class="sec4">
-      <a class="nav-item nav-link profile-nav" href="index.php"
-        onclick="return confirm('Are you sure you want to logout?');" style="color: white;">LOGOUT</a>
+      <a class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Manager</a>
+      <ul class="dropdown-menu settings-dropdown-menu">
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="index.php">Logout</a>
+        </li>
+        <br>
+        <li class="dropdown-tab">
+          <a class="dropdown-items dropdown-link settings-dropdown-items" href="be_manager_change_password.php"
+            id="change-password-link">Change
+            Password</a>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -352,6 +366,7 @@ $conn->close();
             style="background-color: #37005a; color: white; border-color: #000000; border-radius: 10px; border-style: none; font-size: 14px; width: 20%;">Search</button>
         </div>
       </div>
+
       <div style="padding-top: 30px">
         <label for="employee_category">Employee Category:</label>
         <br />
@@ -364,6 +379,7 @@ $conn->close();
           </option>
         </select>
       </div>
+
       <div style="padding-top: 30px">
         <label for="system_fname">Full Name:</label>
         <br />
@@ -377,6 +393,7 @@ $conn->close();
           value="<?php echo !empty($employee['Contact_No']) ? htmlspecialchars($employee['Contact_No']) : ''; ?>"
           pattern="[0-9]+" maxlength="10" style="font-size: 14px;" />
       </div>
+
       <div style="padding-top: 30px">
         <label for="system_email">E-mail:</label>
         <br />
@@ -389,12 +406,14 @@ $conn->close();
         <input type="text" class="form-control" name="system_username" id="system_username"
           value="<?php echo htmlspecialchars($employee['Username']); ?>" required="true" style="font-size: 14px;" />
       </div>
+
       <div style="padding-top: 30px">
         <label for="system_password">Password:</label>
         <br />
         <input type="password" class="form-control" name="system_password" id="system_password" <?php if ($disableAdd)
           echo 'disabled'; ?> style="font-size: 14px;" />
       </div>
+
       <div style="padding-top: 30px">
         <label for="confirm_password">Confirm Password:</label>
         <br />
@@ -403,7 +422,9 @@ $conn->close();
       </div>
       <br />
       <br />
+
       <div style="display: flex; justify-content: space-between; padding: 10px;">
+
         <button type="button" class="btn btn-primary btn-lg buttonBE" onclick="submitForm('add')" style="width: 200px"
           <?php if ($disableAdd)
             echo 'disabled'; ?>>Add System User</button>
@@ -415,9 +436,10 @@ $conn->close();
             echo 'disabled'; ?>>Delete System User</button>
         <a href="be_manager_manage_system_users.php" class="btn btn-secondary btn-lg"
           style="background-color: #37005a; color: white; border-color: #000000; border-radius: 10px; border-style: none; width:200px; font-size: 14px">Back</a>
-      </div>
-    </form>
 
+      </div>
+
+    </form>
   </div>
 
   <script>
@@ -434,7 +456,7 @@ $conn->close();
 
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var mobilePattern = /^\d{10}$/;
-        var passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+        var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
         const hasNumber = /\d/.test(fname);
 
@@ -459,7 +481,7 @@ $conn->close();
         }
 
         if (!passwordPattern.test(password)) {
-          alert("Password must be at least 8 characters long, with at least one uppercase letter and one number!");
+          alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter and one digit!");
           return;
         }
 
