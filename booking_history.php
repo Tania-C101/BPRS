@@ -53,13 +53,45 @@ $result = $stmt->get_result();
     crossorigin="anonymous"></script>
   <style>
     .btn-view {
-      background-color: #37005a;
-      border-color: #37005a;
+      background-color: #470074;
+      border-color: #470074;
+      width: 150px;
+      font-size: 14px;
+      border-radius: 10px;
     }
 
     .btn-view:hover {
       background-color: #4a007a;
       border-color: #4a007a;
+    }
+
+    .action-column {
+      width: 250px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
     }
   </style>
 </head>
@@ -111,7 +143,7 @@ $result = $stmt->get_result();
           <th class="text-center">Appointment Date</th>
           <th class="text-center">Appointment Time</th>
           <th class="text-center">Appointment Status</th>
-          <th class="text-center">Action</th>
+          <th class="text-center action-column">Action</th>
         </tr>
       </thead>
       <tbody style="font-size: 14px">

@@ -113,6 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die("Connection failed: " . $conn->connect_error);
   }
 
+  // Validates duplicate entries with the same username or password
   $sql = "SELECT * FROM reg_users WHERE Username = ? OR R_Email = ? OR Phone = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("sss", $user_username, $user_email, $user_mobile);

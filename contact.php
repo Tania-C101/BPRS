@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       die("Connection failed: " . $conn->connect_error);
     }
 
+    // Concurrently insert data into unreg_users table and inquiries table extracting required values
     $sql1 = "INSERT INTO unreg_users (U_First_Name, U_Last_Name, U_Email, U_Phone) VALUES (?, ?, ?, ?)";
     $stmt1 = $conn->prepare($sql1);
     $stmt1->bind_param("ssss", $fname, $lname, $email, $phone);
@@ -206,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="form-group">
                     <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required=""
                       style="font-size: 14px"
-                      value="<?php echo isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : ''; ?>" />
+                      value="<?php echo isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : ''; ?>" /> // Preseerves previously entered values
                     <?php if (!empty($errors['fname'])): ?>
                       <div class="error" style="color: red;"><?php echo $errors['fname']; ?></div>
                     <?php endif; ?><br>

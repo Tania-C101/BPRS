@@ -38,16 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $confirm_password = $_POST['confirm_password'];
 
   // Password validation pattern
-  $passwordPattern = '/^(?=.*[A-Z])(?=.*\d).{8,}$/';
+  $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/';
 
   // Validate new password
   $errors = [];
   if (!preg_match($passwordPattern, $new_password)) {
-    $errors[] = "New password must be at least 8 characters long and contain at least one uppercase letter and one digit.";
+    $errors[] = "New password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter and one digit.";
   }
 
   if (password_verify($current_password, $user['Password'])) {
     if ($new_password === $confirm_password) {
+      if ($current_password === $new_password) {
+        $errors[] = "The new password cannot be the same as the current password. Please choose a different password.";
+      }
+
       if (empty($errors)) {
         $new_password_hash = password_hash($new_password, PASSWORD_BCRYPT);
 
@@ -72,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<script>alert('Current password is incorrect!');</script>";
   }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +101,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+
+    .update-btn {
+      background-color: #470074;
+      border-color: #470074;
+      color: white;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .update-btn:hover {
+      background-color: #37005a;
+      border-color: #37005a;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
+  </style>
 </head>
 
 <!--Change password page viewable for Registered users-->
@@ -227,9 +275,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <br />
                   <input type="password" class="form-control new_password" placeholder="Enter your new password"
                     name="new_password" id="new_password" required="true" style="font-size: 14px" />
-                  <?php if (!empty($errors) && !preg_match($passwordPattern, $new_password)) {
+                  <?php
+                  if (!empty($errors) && !preg_match($passwordPattern, $new_password)) {
                     echo "<span style='color: red; font-size: 12px;'>New password must be at least 8 characters long and contain at least one uppercase letter and one digit.</span>";
-                  } ?>
+                  }
+                  if ($_SERVER['REQUEST_METHOD'] === 'POST' && $current_password === $new_password) {
+                    echo "<span style='color: red; font-size: 12px;'>The new password cannot be the same as the current password. Please choose a different password.</span>";
+                  }
+                  ?>
                 </div>
                 <div style="padding-top: 30px">
                   <label style="font-size: 14px" for="confirm_password">Confirm Password</label>
@@ -241,14 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   } ?>
                 </div>
                 <div style="padding-top: 30px; text-align: left">
-                  <button type="submit" class="btn btn-primary btn-lg" style="
-                  background-color: #a600fa;
-                  color: white;
-                  border-color: #000000;
-                  border-radius: 10px;
-                  border-style: none;
-                  font-size: 14px;
-                ">
+                  <button type="submit" class="btn btn-primary btn-lg update-btn" id="update-password-btn">
                     Update Password
                   </button>
                 </div>
@@ -288,7 +334,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
   </footer>
-
 </body>
 
 </html>

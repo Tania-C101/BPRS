@@ -21,6 +21,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <style>
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
+  </style>
 </head>
 
 <!--Index page viewable to Registered users-->

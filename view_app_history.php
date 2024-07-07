@@ -96,6 +96,7 @@ $conn->close();
       padding: 15px;
       text-align: left;
       border-bottom: 1px solid #000000;
+      font-size: 15px;
     }
 
     #first-column {
@@ -171,6 +172,31 @@ $conn->close();
         display: none;
       }
     }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
   </style>
 </head>
 
@@ -222,7 +248,7 @@ $conn->close();
                 padding: 50px;
                 background-color: #f0d4fe;
                 border-radius: 10px;
-                width: 1100px;
+                width: 1000px;
                 ">
           <!-- Container for appointment details -->
           <div id="div_view_app" class="table-container">
@@ -285,10 +311,10 @@ $conn->close();
       </div>
       <div class="sec2">
         <p style="font-size: 24px">Useful Links</p>
-        <a class="footerLink bi bi-link-45deg" href="index.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</a><br />
-        <a class="footerLink bi bi-link-45deg" href="about_us.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About</a><br />
-        <a class="footerLink bi bi-link-45deg" href="services.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Services</a><br />
-        <a class="footerLink bi bi-link-45deg" href="contact.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact</a><br />
+        <a class="footerLink bi bi-link-45deg" href="regIndex.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</a><br />
+        <a class="footerLink bi bi-link-45deg" href="regAbout_us.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About</a><br />
+        <a class="footerLink bi bi-link-45deg" href="regServices.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Services</a><br />
+        <a class="footerLink bi bi-link-45deg" href="regContact.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact</a><br />
       </div>
       <div class="sec3">
         <p style="font-size: 24px">About Us</p>

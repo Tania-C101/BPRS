@@ -61,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $conn->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +86,32 @@ $conn->close();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <style>
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
+  </style>
 </head>
 
 <!--Appointment page viewable for Registered users-->
@@ -119,7 +144,7 @@ $conn->close();
 
   <!--Up Panel-->
   <div class="container-image" style="text-align: center">
-    <img src="images/appointment.jpg" style="width: 100%" alt="Appointment page background image" />
+    <img src="images/appointment.png" style="width: 100%" alt="Appointment page background image" />
     <div class="text" style="color: #ffffff; font-size: 60px">
       Appointment Booking
     </div>
@@ -187,7 +212,7 @@ $conn->close();
               <br>
               <div class="side-image">
                 <center>
-                  <img src="images/appStaff.png" alt="salon staff" />
+                  <img src="images/appStaff.jpg" alt="salon staff" />
                 </center>
               </div>
             </div>
@@ -207,14 +232,14 @@ $conn->close();
                   <br />
                   <br />
                   <input type="date" class="form-control appointment_date" placeholder="Date" name="appDate"
-                    id="appDate" value="" />
+                    id="appDate" value="" style="font-size:14px;" />
                 </div>
                 <div style="padding-top: 30px">
                   <label>Appointment Time</label>
                   <br />
                   <br />
                   <input type="time" class="form-control appointment_time" placeholder="Time" name="appTime"
-                    id="appTime" value="" />
+                    id="appTime" value="" style="font-size:14px;" />
                 </div>
                 <div style="padding-top: 30px">
                   <label>Select Required Services</label>

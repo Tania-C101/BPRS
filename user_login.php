@@ -2,6 +2,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+  // Input validation
   if (isset($_POST['user_login_username']) && isset($_POST['user_login_password'])) {
     $username = sanitize_input($_POST['user_login_username']);
     $password = sanitize_input($_POST['user_login_password']);
@@ -24,7 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user = validate_user($username, $password, $conn);
 
+    //User authentication
     if ($user) {
+      //Starts a session and store values in the session variables
       session_start();
       // Set session variables
       $_SESSION['Username'] = $user['Username'];

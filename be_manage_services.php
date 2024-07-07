@@ -13,13 +13,14 @@ if ($conn->connect_error) {
 // Function to handle file upload
 function uploadFile($file)
 {
-  $targetDir = "uploads/";
-  $targetFile = $targetDir . basename($file["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+  $targetDir = "uploads/"; //Sets the target directory
+  $targetFile = $targetDir . basename($file["name"]); //Extarcts the file's base name and
+  //concats the target directory path with the base name creating the full path of the image
+  $uploadOk = 1; //Initializing the Upload Status
+  $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION)); //Extracts the file extension from the target file path
 
   // Check if file is actually uploaded
-  if ($file["error"] != UPLOAD_ERR_OK) {
+  if ($file["error"] != UPLOAD_ERR_OK) {//If value of UPLOAD_ERR_OK is not 0 -> Unsuccessful upload
     echo "File upload error.";
     $uploadOk = 0;
   } else {

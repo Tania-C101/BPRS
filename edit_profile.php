@@ -150,6 +150,37 @@ try {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
+  </style>
 </head>
 
 <body class="home">
@@ -250,7 +281,6 @@ try {
             </div>
           </div>
 
-          <!--Right Panel-->
           <div class="col-md-6">
             <div class="map-content-9 mt-lg-0 mt-4">
               <br />
@@ -311,9 +341,9 @@ try {
       </div>
     </div>
   </section>
-  <br />
-  <br />
 
+  <br />
+  <br />
   <footer>
     <div class="footerContainer">
       <div class="sec1">
@@ -340,39 +370,6 @@ try {
       </div>
     </div>
   </footer>
-
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('update_Profile_Button').addEventListener('click', (event) => {
-        checkValidation(event);
-      });
-    });
-
-    function checkValidation() {
-      let user_fname = document.getElementById("user_fname").value;
-      let user_lname = document.getElementById("user_lname").value;
-      let user_mobile = document.getElementById("user_mobile").value;
-      let user_email = document.getElementById("user_email").value;
-
-      let nameRegex = /^[A-Za-z]+$/;
-      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      let phoneRegex = /^\d{10}$/;
-
-      if (!user_fname || !user_lname || !user_mobile || !user_email) {
-        alert("User data will be updated!");
-      } else if (!nameRegex.test(user_fname)) {
-        alert("First name must contain only letters A-Z or a-z!");
-      } else if (!nameRegex.test(user_lname)) {
-        alert("Last name must contain only letters A-Z or a-z!");
-      } else if (!phoneRegex.test(user_mobile)) {
-        alert("Phone number must be 10 digits!");
-      } else if (!emailRegex.test(user_email)) {
-        alert("Invalid email format!");
-      } else {
-        alert("Profile successfully updated!");
-      }
-    }
-  </script>
 </body>
 
 </html>

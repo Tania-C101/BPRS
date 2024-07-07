@@ -363,32 +363,6 @@ appServLabel {
   float: left;
 }
 
-/*---------------------CSS - Done by Dulakshi-----------------------*/
-
-.dropdown-menu {
-  list-style: none;
-  background: #ffffff;
-}
-
-.dropdown-menu .dropdown-tab {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-
-.dropdown-menu .dropdown-tab .dropdown-link {
-  display: block;
-  padding: 10px 10px;
-  color: #000000;
-  text-decoration: none;
-  text-align: left;
-  font-size: 16px;
-}
-
-.dropdown-menu .dropdown-tab .dropdown-link:hover {
-  background: #dfa6f2;
-}
-
 /*---------------------CSS - Done by Tania-----------------------*/
 
 #edit-profile-form {

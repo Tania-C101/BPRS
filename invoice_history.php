@@ -37,7 +37,7 @@ while ($row = $result->fetch_assoc()) {
   $invoice_data = array(
     'Invoice_ID' => $row['Invoice_ID'],
     'App_ID' => $row['App_ID'],
-    'Invoice_Date' => $row['Invoice_Date'],
+    'Invoice_Date' => date('Y-m-d', strtotime($row['Invoice_Date'])),
     'Customer_Name' => $row['R_First_Name'] . ' ' . $row['R_Last_Name'],
     'Customer_Mobile' => $row['Phone']
   );
@@ -73,6 +73,42 @@ $conn->close();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <style>
+    .btn-view {
+      background-color: #470074;
+      border-color: #470074;
+    }
+
+    .btn-view:hover {
+      background-color: #4a007a;
+      border-color: #4a007a;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: translateY(0);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+
+    .dropdown-menu a.dropdown-items {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .dropdown-menu a.dropdown-items:hover {
+      background-color: #f8f9fa;
+      color: white;
+    }
+
+    .dropdown-menu a.dropdown-items.active {
+      background-color: #a600fa;
+      color: white;
+    }
+  </style>
 </head>
 
 <!--Invoice history page viewable for Registered users-->

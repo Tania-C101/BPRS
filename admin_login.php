@@ -1,6 +1,8 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  //Input validation and sanitization
   if (isset($_POST['admin_login_username']) && isset($_POST['admin_login_password'])) {
     $username = htmlspecialchars(trim(stripslashes($_POST['admin_login_username'])));
     $password = htmlspecialchars(trim(stripslashes($_POST['admin_login_password'])));
