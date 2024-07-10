@@ -189,8 +189,8 @@ function validate_user($username, $password, $conn)
                   Log in
                 </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-primary btn-lg front-button" style="width: 200px;"
-                  onclick="window.location.href='forgot_password_admin.php';">
-                  Forgot Password
+                  onclick="window.location.href='index.php';">
+                  Cancel
                 </button>
               </form>
             </div>

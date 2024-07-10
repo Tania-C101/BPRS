@@ -210,8 +210,8 @@ function sanitize_input($data)
                     Log in
                   </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button type="button" class="btn btn-primary btn-lg front-button" style="width: 200px;"
-                    onclick="window.location.href='forgot_password.php';">
-                    Forgot Password
+                    onclick="window.location.href='index.php';">
+                    Cancel
                   </button>
                 </div>
               </form>
