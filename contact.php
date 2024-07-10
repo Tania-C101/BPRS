@@ -207,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="form-group">
                     <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required=""
                       style="font-size: 14px"
-                      value="<?php echo isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : ''; ?>" /> // Preseerves previously entered values
+                      value="<?php echo isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : ''; ?>" />
                     <?php if (!empty($errors['fname'])): ?>
                       <div class="error" style="color: red;"><?php echo $errors['fname']; ?></div>
                     <?php endif; ?><br>
