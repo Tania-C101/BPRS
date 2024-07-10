@@ -253,7 +253,7 @@ $conn->close();
                       <label class="appServLabel">Hair Services</label>
                       <br />
                       <br />
-                      <input type="checkbox" id="options" name="options[]" value="Hair Cut" />
+                      <input type="checkbox" id="options" name="options[]" value="Haircut" />
                       <label for="options">Hair Cut</label>
                       <br />
                       <br />
